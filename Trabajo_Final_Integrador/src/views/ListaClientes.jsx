@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 
 import { TablaClientes } from "../components/common/TablaClientes";
 import { BuscadorClientes } from "../components/common/BuscadorClientes";
+import { FormularioCliente } from "../components/common/FormularioCliente";
 
 import CircularProgress from "@mui/material/CircularProgress";
 import Alert from "@mui/material/Alert";
@@ -46,6 +47,9 @@ export const ListaClientes = () => {
     return (
         <>
             <BuscadorClientes apellidoBusqueda={apellidoBusqueda} setApellidoBusqueda={setApellidoBusqueda} ciudadBusqueda={ciudadBusqueda} setCiudadBusqueda={setCiudadBusqueda} />
+            
+             <FormularioCliente />
+
             <TablaClientes clientes={clientesFiltrados}/>
         </>
     )
