@@ -5,6 +5,8 @@ import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
+import { Link } from "react-router-dom";
+import Button from "@mui/material/Button";
 
 export const TablaClientes = ({ clientes }) => {
     return (
@@ -18,6 +20,7 @@ export const TablaClientes = ({ clientes }) => {
                         <TableCell>Email</TableCell>
                         <TableCell>Teléfono</TableCell>
                         <TableCell>Ciudad</TableCell>
+                        <TableCell>Acciones</TableCell>
                     </TableRow>
                 </TableHead>
                 <TableBody>
@@ -28,6 +31,9 @@ export const TablaClientes = ({ clientes }) => {
                             <TableCell>{cliente.email}</TableCell>
                             <TableCell>{cliente.phone}</TableCell>
                             <TableCell>{cliente.address.city}</TableCell>
+                            <TableCell> 
+                                <Button component={Link} to={`/clientes/${cliente.id}`} variant="contained"> Ver Ficha Completa </Button>
+                            </TableCell>
                         </TableRow>
                     ))}
                 </TableBody>
