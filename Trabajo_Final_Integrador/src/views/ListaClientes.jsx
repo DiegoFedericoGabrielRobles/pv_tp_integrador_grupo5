@@ -1,5 +1,7 @@
 import { useState, useEffect } from "react";
 
+import { TablaClientes } from "../components/common/TablaClientes";
+
 import CircularProgress from "@mui/material/CircularProgress";
 import Alert from "@mui/material/Alert";
 
@@ -37,9 +39,6 @@ export const ListaClientes = () => {
     }
 
     return (
-        <>
-            <h1>Lista de Clientes</h1>
-            <p>Cantidad de clientes: {clientes.length}</p>
-        </>
+        <TablaClientes clientes={clientes}/>
     );
 };
