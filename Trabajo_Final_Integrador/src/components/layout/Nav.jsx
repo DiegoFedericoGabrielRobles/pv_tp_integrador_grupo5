@@ -11,19 +11,22 @@ import Typography from '@mui/material/Typography';
 import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
+import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import ListItem from "@mui/material/ListItem";
 import ListItemButton from "@mui/material/ListItemButton";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
 import DashboardIcon from '@mui/icons-material/Dashboard';
 import PeopleIcon from '@mui/icons-material/People';
+import LogoutIcon from '@mui/icons-material/Logout';
+import Divider from '@mui/material/Divider';
 
 import { AppBar, Drawer, DrawerHeader } from "../../styles/nav_style"; 
 
 export const Nav = ({children}) => {
     const theme = useTheme();
     const [open, setOpen] = React.useState(false);
-    const {admin} = useContext(AdminContext);
+    const {admin, logout} = useContext(AdminContext);
     const location = useLocation();
 
     const handleDrawerOpen = () => {
@@ -32,6 +35,10 @@ export const Nav = ({children}) => {
 
     const handleDrawerClose = () => {
         setOpen(false);
+    };
+
+    const handleLogout = ()=>{
+        logout();
     };
 
     const menuItems = [
@@ -101,6 +108,37 @@ export const Nav = ({children}) => {
                                 </ListItemButton>
                             </ListItem>
                         ))}
+                    </List>
+                    <Divider />
+                    <List>
+                        <ListItem key= "Cerrar Sesion"disablePadding sx={{ display: "block" }}>
+                            <ListItemButton
+                                onClick={handleLogout}
+                                sx={[
+                                    {
+                                    minHeight: 48,
+                                    px: 2.5,
+                                    },
+                                    open ? { justifyContent: "initial" } : { justifyContent: "center" },
+                                ]}
+                                >
+                                    <ListItemIcon
+                                        sx={[
+                                            {
+                                                minWidth: 0,
+                                                justifyContent: "center",
+                                            },
+                                            open ? { mr: 3 } : { mr: "auto" },
+                                        ]}
+                                        >
+                                        <LogoutIcon />
+                                    </ListItemIcon>
+                                    <ListItemText primary="Cerrar Sesión" sx={[
+                                        open ? { opacity: 1 } : { opacity: 0 },
+                                    ]}
+                                    />
+                            </ListItemButton>
+                        </ListItem>
                     </List>
                 </Drawer>
                 <Box component="main" sx={{ flexGrow: 1, p: 3, marginTop: "64px" }}>
