@@ -18,7 +18,7 @@ import ListItemText from "@mui/material/ListItemText";
 import DashboardIcon from '@mui/icons-material/Dashboard';
 import PeopleIcon from '@mui/icons-material/People';
 
-import { AppBar, Drawer, DrawerHeader } from "../../css/nav_style"; 
+import { AppBar, Drawer, DrawerHeader } from "../../styles/nav_style"; 
 
 export const Nav = ({children}) => {
     const theme = useTheme();
