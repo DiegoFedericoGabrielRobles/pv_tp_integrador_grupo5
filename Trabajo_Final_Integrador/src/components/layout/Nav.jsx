@@ -35,7 +35,7 @@ export const Nav = ({children}) => {
     };
 
     const menuItems = [
-        { text: "Dashboard", icon: <DashboardIcon />, path: "/" },
+        { text: "Panel", icon: <DashboardIcon />, path: "/" },
         { text: "Clientes", icon: <PeopleIcon />, path: "/clientes" },
     ];
     return(
