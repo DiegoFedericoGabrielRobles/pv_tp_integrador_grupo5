@@ -34,7 +34,7 @@ export const Login = () => {
     };
 
     return (
-          <Card sx={{ maxWidth: 500, margin: "50px auto", padding: 2 }}>
+        <Card sx={{ maxWidth: 500, margin: "50px auto", padding: 2 }}>
             <CardContent>
 
                 <Typography variant="h6" gutterBottom> Iniciar Sesión </Typography>
@@ -61,6 +61,7 @@ export const Login = () => {
                     fullWidth
                     sx={{ mt: 2 }}
                     onClick={ingresar}
+                    disabled={nombre === "" || sector === ""}
                 >
                     Ingresar
                 </Button>
