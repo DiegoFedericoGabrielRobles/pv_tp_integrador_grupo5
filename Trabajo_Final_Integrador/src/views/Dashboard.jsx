@@ -61,7 +61,7 @@ if (loading) {
                     <Card sx={{ mb: 3, bgcolor: "primary.light", color:"white"}}>
                         <CardContent>
                             <Typography variant="h5">
-                                Admonostrador:{admin?.nombre || "No Identificado"}
+                                Adminostrador:{admin?.nombre || "No Identificado"}
                             </Typography>
                             <Typography variant="body2">
                                 Sector: {admin?.sector || "No Identificado"}
