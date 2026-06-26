@@ -11,6 +11,8 @@ import Alert from "@mui/material/Alert";
 import Box from "@mui/material/Box";
 import Divider from "@mui/material/Divider";
 
+import{DetalleCard, DetalleBox, DetalleBoxAcciones, TituloSeccion, DatoTexto, BotonVolver, BotonEliminar} from "../styles/DetalleClientes_Style";
+
 export const DetalleCliente = () => {
     const { id } = useParams();
     const navigate = useNavigate();
@@ -127,10 +129,10 @@ export const DetalleCliente = () => {
                         Credenciales de Acceso
                     </Typography>
                     <Typography variant="body1">
-                        <strong>Username:</strong> {username}
+                        <strong>Usuario:</strong> {username}
                     </Typography>
                     <Typography variant="body1">
-                        <strong>Password:</strong> {password}
+                        <strong>Contraseña:</strong> {password}
                     </Typography>
                 </Box>
 
