@@ -1,5 +1,7 @@
 import { useState } from "react";
 
+import { crearCliente } from "../../services/clienteService";
+
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
@@ -24,21 +26,15 @@ export const FormularioCliente = () => {
         };
 
         try {
-            const respuesta = await fetch("https://fakestoreapi.com/users",
-                {
-                    method: "POST",
-                    headers: { "Content-Type": "application/json"},
-                    body: JSON.stringify(nuevoCliente)
-                });
+            const datos = await crearCliente(nuevoCliente);
 
-            const datos = await respuesta.json();
             setMensajeExito(`Cliente creado correctamente. ID asignado: ${datos.id}`);
             setNombre("");
             setApellido("");
             setEmail("");
         }
         catch (error) {
-        console.error(error);
+            console.error(error);
         }
 
     };

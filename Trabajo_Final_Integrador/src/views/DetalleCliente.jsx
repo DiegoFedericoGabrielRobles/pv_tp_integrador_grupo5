@@ -2,6 +2,8 @@ import { useState, useEffect, useContext } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { AdminContext } from "../context/AdminContext";
 
+import { obtenerClienteId, eliminarCliente } from "../services/clienteService";
+
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
@@ -24,13 +26,9 @@ export const DetalleCliente = () => {
     const [error, setError] = useState(false);
 
 
-    const obtenerCliente = async () => {
+    const cargarCliente = async () => {
         try {
-            const respuesta = await fetch(`https://fakestoreapi.com/users/${id}`);
-            if (!respuesta.ok) {
-                throw new Error("Error al obtener la ficha");
-            }
-            const datos = await respuesta.json();
+            const datos = await obtenerClienteId(id);
             setCliente(datos);
             setLoading(false);
         } catch (err) {
@@ -39,26 +37,21 @@ export const DetalleCliente = () => {
         }
     };
 
-    const eliminarCliente = async () => {
+    const deleteCliente = async () => {
         if (window.confirm("¿Está seguro de que desea eliminar este cliente de la base de datos?")) {
-            try {
-                const respuesta = await fetch(`https://fakestoreapi.com/users/${id}`, {
-                    method: "DELETE"
-                });
-                if (!respuesta.ok) {
-                    throw new Error("Error al eliminar");
-                }
-                alert("Cliente eliminado correctamente (Simulado).");
-                navigate("/clientes");
-            } catch (err) {
-                console.error(err);
-                alert("Hubo un error al intentar eliminar el cliente.");
-            }
-        }
+
+        try {
+            await eliminarCliente(id);
+            alert("Cliente eliminado correctamente (Simulado).");
+            navigate("/clientes");
+        } catch (error) {
+            console.error(error);
+            alert("Hubo un error al intentar eliminar el cliente.");
+        }}
     };
 
     useEffect(() => {
-        obtenerCliente();
+        cargarCliente();
     }, [id]);
 
     if (loading) {

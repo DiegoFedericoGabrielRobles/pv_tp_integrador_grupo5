@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { obtenerClientes } from "../services/clienteService";
 
 import { TablaClientes } from "../components/common/TablaClientes";
 import { BuscadorClientes } from "../components/common/BuscadorClientes";
@@ -15,21 +16,19 @@ export const ListaClientes = () => {
     const [apellidoBusqueda, setApellidoBusqueda] = useState("");
     const [ciudadBusqueda, setCiudadBusqueda] = useState("");
 
-    const obtenerClientes = async () => {
-        try {
-            const respuesta = await fetch( "https://fakestoreapi.com/users");
-            const datos = await respuesta.json();
-            setClientes(datos);
-            setLoading(false);
-        } catch (error) {
-            setError(true);
-            setLoading(false);
-        }
-
+    const cargarClientes = async () => {
+            try {
+                const datos = await obtenerClientes();
+                setClientes(datos);
+                setLoading(false);
+            } catch (error) {
+                setError(true);
+                setLoading(false);
+            }
     };
 
     useEffect(() => {
-        obtenerClientes();
+        cargarClientes();
     }, []);
 
     if (loading) {
