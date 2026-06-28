@@ -6,7 +6,12 @@ import { FormularioCliente } from "../components/common/FormularioCliente";
 
 import CircularProgress from "@mui/material/CircularProgress";
 import Alert from "@mui/material/Alert";
-import { CardClientes } from "../components/common/CardClientes";
+import { CardsClientes } from "../components/common/CardsClientes";
+
+
+
+
+
 
 export const ListaClientes = () => {
     const [clientes, setClientes] = useState([]);
@@ -49,7 +54,7 @@ export const ListaClientes = () => {
             
              <FormularioCliente />
 
-            <CardClientes clientes={clientesFiltrados}/> 
+            <CardsClientes clientes={clientesFiltrados}/> 
         </>
     )
 };
