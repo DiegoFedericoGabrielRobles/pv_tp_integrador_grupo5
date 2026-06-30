@@ -1,12 +1,17 @@
 import { useState, useEffect } from "react";
 import { obtenerClientes } from "../services/clienteService";
 
-import { TablaClientes } from "../components/common/TablaClientes";
 import { BuscadorClientes } from "../components/common/BuscadorClientes";
 import { FormularioCliente } from "../components/common/FormularioCliente";
 
 import CircularProgress from "@mui/material/CircularProgress";
 import Alert from "@mui/material/Alert";
+import { CardsClientes } from "../components/common/CardsClientes";
+
+
+
+
+
 
 export const ListaClientes = () => {
     const [clientes, setClientes] = useState([]);
@@ -49,7 +54,7 @@ export const ListaClientes = () => {
             
              <FormularioCliente />
 
-            <TablaClientes clientes={clientesFiltrados}/>
+            <CardsClientes clientes={clientesFiltrados}/> 
         </>
     )
 };
