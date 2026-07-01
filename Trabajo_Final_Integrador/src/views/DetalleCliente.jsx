@@ -15,6 +15,7 @@ import Divider from "@mui/material/Divider";
 import IconButton from "@mui/material/IconButton";
 import Tooltip from "@mui/material/Tooltip";
 import DeleteIcon from "@mui/icons-material/Delete";
+import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 
 import{DetalleCard, DetalleBox, DetalleBoxAcciones, TituloSeccion, DatoTexto, BotonVolver, BotonEliminar} from "../styles/DetalleClientes_Style";
 
@@ -133,9 +134,16 @@ export const DetalleCliente = () => {
                 </Box>
 
                 <Box sx={{ display: "flex", gap: 2, justifyContent: "space-between", mt: 3 }}>
-                    <Button variant="outlined" onClick={() => navigate("/clientes")}>
-                        Volver a la Lista
-                    </Button>
+                    <Tooltip title="Volver" placement="top">
+                        <IconButton
+                        onClick={() => navigate(-1)}
+                        aria-label="volver atrás"
+                        color="primary"
+                        size="large"
+    >
+        <ArrowBackIcon />
+    </IconButton>
+</Tooltip>
                 {admin?.sector === "Gerencia" && (
     <Tooltip
         title="Eliminar Cliente de la Base de Datos"
