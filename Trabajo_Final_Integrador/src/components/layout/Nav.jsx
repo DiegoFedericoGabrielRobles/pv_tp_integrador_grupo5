@@ -67,6 +67,9 @@ export const Nav = ({children}) => {
                         <Typography variant="h6" noWrap component="div">
                             Panel de Control de Clientes
                         </Typography>
+                        <Typography variant="body1" sx={{marginLeft:"auto"}}>
+                            Usted es {admin?.nombre} ({admin?.sector})
+                        </Typography>
                 </Toolbar>
                 </AppBar>
                 <Drawer variant="permanent" open={open}>
