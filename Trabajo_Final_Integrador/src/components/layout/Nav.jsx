@@ -21,6 +21,7 @@ import PeopleIcon from '@mui/icons-material/People';
 import LogoutIcon from '@mui/icons-material/Logout';
 import Divider from '@mui/material/Divider';
 
+import { Footer } from "./Footer";
 import { AppBar, Drawer, DrawerHeader } from "../../styles/nav_style"; 
 
 export const Nav = ({children}) => {
@@ -84,7 +85,7 @@ export const Nav = ({children}) => {
                                     selected={location.pathname === item.path}
                                     sx={[
                                         {
-                                            minHeight: 48,
+                                            minHeight: 32,
                                             px: 2.5,
                                         },
                                         open ? { justifyContent: "initial" } : { justifyContent: "center" },
@@ -141,8 +142,11 @@ export const Nav = ({children}) => {
                         </ListItem>
                     </List>
                 </Drawer>
-                <Box component="main" sx={{ flexGrow: 1, p: 3, marginTop: "64px" }}>
-                    {children}
+                <Box component="main" sx={{ flexGrow: 1, p: 3, marginTop: "64px", display: "flex", flexDirection: "column", minHeight: "100vh",}}>
+                    <Box sx={{ flexGrow: 1 }}>
+                        {children}
+                    </Box>
+                    <Footer />
                 </Box>
         </Box> 
     );
