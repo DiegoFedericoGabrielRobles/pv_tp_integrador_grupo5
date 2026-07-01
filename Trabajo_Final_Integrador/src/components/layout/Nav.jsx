@@ -45,6 +45,7 @@ export const Nav = ({children}) => {
     const menuItems = [
         { text: "Panel", icon: <DashboardIcon />, path: "/" },
         { text: "Clientes", icon: <PeopleIcon />, path: "/clientes" },
+        { text: "Alta Cliente", icon: <PeopleIcon/>, path: "/clientes/nuevo" },
     ];
     return(
         <Box sx={{ display: "flex" }}>

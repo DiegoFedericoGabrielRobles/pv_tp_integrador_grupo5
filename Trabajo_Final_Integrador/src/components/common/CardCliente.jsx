@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
-import { Card, CardContent, CardActions, Button, Typography, Grid } from "@mui/material";
+import { Card, CardContent, CardActions, Typography, Grid, IconButton, Tooltip } from "@mui/material";
+import VisibilityIcon from '@mui/icons-material/Visibility';
 
 export const CardCliente = ({ cliente}) => {
     return (
@@ -27,8 +28,23 @@ export const CardCliente = ({ cliente}) => {
                     </Typography>
                 </CardContent>
 
-                <CardActions>
-                    <Button component={Link} to={`/clientes/${cliente.id}`} variant="contained" fullWidth size="medium">Ver Ficha Completa</Button>
+                <CardActions sx={{ justifyContent: "flex-end", paddingRight: 2, paddingBottom: 2 }}>
+                    
+                    <Tooltip title="Ver ficha completa" placement="top">
+                        <IconButton 
+                            component={Link} 
+                            to={`/clientes/${cliente.id}`} 
+                            aria-label="ver detalles" 
+                            color="primary"
+                            sx={{ 
+                                backgroundColor: 'rgba(25, 118, 210, 0.08)',
+                                '&:hover': { backgroundColor: 'rgba(25, 118, 210, 0.2)' } 
+                            }}
+                        >
+                            <VisibilityIcon />
+                        </IconButton>
+                    </Tooltip>
+                    
                 </CardActions>
             </Card>
         </Grid>

@@ -12,6 +12,9 @@ import CircularProgress from "@mui/material/CircularProgress";
 import Alert from "@mui/material/Alert";
 import Box from "@mui/material/Box";
 import Divider from "@mui/material/Divider";
+import IconButton from "@mui/material/IconButton";
+import Tooltip from "@mui/material/Tooltip";
+import DeleteIcon from "@mui/icons-material/Delete";
 
 import{DetalleCard, DetalleBox, DetalleBoxAcciones, TituloSeccion, DatoTexto, BotonVolver, BotonEliminar} from "../styles/DetalleClientes_Style";
 
@@ -133,11 +136,25 @@ export const DetalleCliente = () => {
                     <Button variant="outlined" onClick={() => navigate("/clientes")}>
                         Volver a la Lista
                     </Button>
-                    {admin?.sector === "Gerencia" && (
-                        <Button variant="contained" color="error" onClick={eliminarCliente}>
-                            Eliminar Cliente de la Base de Datos
-                        </Button>
-                    )}
+                {admin?.sector === "Gerencia" && (
+    <Tooltip
+        title="Eliminar Cliente de la Base de Datos"
+        placement="top"
+    >
+        <IconButton
+            onClick={deleteCliente}
+            sx={{
+                backgroundColor: "error.main",
+                color: "white",
+                "&:hover": {
+                    backgroundColor: "error.dark"
+                }
+            }}
+        >
+            <DeleteIcon />
+        </IconButton>
+    </Tooltip>
+)}
                 </Box>
             </CardContent>
         </Card>
