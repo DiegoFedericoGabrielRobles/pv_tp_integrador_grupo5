@@ -146,7 +146,7 @@ export const Nav = ({children}) => {
                     <Box sx={{ flexGrow: 1 }}>
                         {children}
                     </Box>
-                    <Footer />
+                    {admin && <Footer />}
                 </Box>
         </Box> 
     );
