@@ -133,7 +133,7 @@ export const DetalleCliente = () => {
                     </Typography>
                 </Box>
 
-                <Box sx={{ display: "flex", gap: 2, justifyContent: "space-between", mt: 3 }}>
+                <Box sx={{ display: "flex", gap: 2, justifyContent: "space-between", mt: 3,}}>
                     <Tooltip title="Volver" placement="top">
                         <IconButton
                         onClick={() => navigate(-1)}
@@ -152,10 +152,13 @@ export const DetalleCliente = () => {
         <IconButton
             onClick={deleteCliente}
             sx={{
-                backgroundColor: "error.main",
+                width: 48,
+    height: 48,
+    borderRadius: "50%",
+                backgroundColor: "primary.main",
                 color: "white",
                 "&:hover": {
-                    backgroundColor: "error.dark"
+                    backgroundColor: "primary.dark"
                 }
             }}
         >
