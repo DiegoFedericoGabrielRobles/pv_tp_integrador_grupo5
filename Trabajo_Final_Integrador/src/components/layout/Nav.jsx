@@ -69,7 +69,7 @@ export const Nav = ({children}) => {
                             Panel de Control de Clientes
                         </Typography>
                         <Typography variant="body1" sx={{marginLeft:"auto"}}>
-                            Usted es {admin?.nombre} ({admin?.sector})
+                            Estimado <strong> {admin?.nombre} </strong> (<strong>{admin?.sector}</strong>)
                         </Typography>
                 </Toolbar>
                 </AppBar>
@@ -150,7 +150,7 @@ export const Nav = ({children}) => {
                     <Box sx={{ flexGrow: 1 }}>
                         {children}
                     </Box>
-                    <Footer />
+                    {admin && <Footer />}
                 </Box>
         </Box> 
     );
