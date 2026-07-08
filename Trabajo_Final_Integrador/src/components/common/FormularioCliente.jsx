@@ -8,6 +8,10 @@ import Typography from "@mui/material/Typography";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 import Alert from "@mui/material/Alert";
+import Visibility from "@mui/icons-material/Visibility";
+import VisibilityOff from "@mui/icons-material/VisibilityOff";
+import IconButton from "@mui/material/IconButton";
+import InputAdornment from "@mui/material/InputAdornment";
 
 export const FormularioCliente = () => {
     const [mensajeExito, setMensajeExito] = useState("");
@@ -18,6 +22,11 @@ export const FormularioCliente = () => {
     const [telefono, setTelefono] = useState("");
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
+    const [mostrarPassword, setMostrarPassword] = useState(false);
+
+    const handleMostrarPassword =() =>{
+            setMostrarPassword(prev => !prev);
+        }
 
     const guardarCliente = async () => {
         const nuevoCliente = {
@@ -106,13 +115,30 @@ export const FormularioCliente = () => {
                     onChange={(e) => setUsername(e.target.value)}
                 />
 
-                 <TextField
+                <TextField
                     fullWidth
                     label="Password"
                     margin="normal"
-                    type="password"
+                    type={mostrarPassword ? "text" : "password"}
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
+                    slotProps={{
+                        input:{
+                        endAdornment: (
+                            <InputAdornment position="end">
+                                <IconButton
+                    onClick={handleMostrarPassword}
+                    edge="end"
+                    aria-label="mostrar contraseña"
+                >
+                    {mostrarPassword
+                        ? <VisibilityOff />
+                        : <Visibility />}
+                                </IconButton>
+                            </InputAdornment>
+                        )
+                    }
+                    }}
                 />
 
                 <Button
@@ -136,4 +162,4 @@ export const FormularioCliente = () => {
             </CardContent>
         </Card>
     );
-};
+}; 
