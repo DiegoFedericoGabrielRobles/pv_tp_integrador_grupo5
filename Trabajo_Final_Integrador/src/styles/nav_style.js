@@ -39,6 +39,7 @@ export const AppBar = styled(MuiAppBar, {
         easing: theme.transitions.easing.sharp,
         duration: theme.transitions.duration.leavingScreen,
     }),
+    backgroundColor: "#0e427df6",
     variants: [
         {
             props: ({ open}) => open,
@@ -61,6 +62,9 @@ export const Drawer = styled(MuiDrawer, {shouldForwardProp: (prop) => prop !== '
         flexShrink: 0,
         whiteSpace: 'nowrap',
         boxSizing: 'border-box',
+        '& .MuiDrawer-paper': {
+            backgroundColor: "#0e427df6",
+        },
         variants: [
             {
                 props: ({open}) => open,

@@ -54,7 +54,7 @@ export const FormularioCliente = () => {
 
     };
     return (
-        <Card sx={{ maxWidth: 600, margin: "20px auto", padding: 2 }}>
+        <Card sx={{ maxWidth: 600, margin: "20px auto", padding: 2, backgroundColor:"#eecae9e8" }}>
             <CardContent>
                 <Typography variant="h6" gutterBottom> Alta de Cliente </Typography>
 
@@ -118,7 +118,11 @@ export const FormularioCliente = () => {
                 <Button
                     variant="contained"
                     fullWidth
-                    sx={{ mt: 2 }}
+                    sx={{ mt: 2, backgroundColor:"#8a2592",
+                        "&:hover": {
+                            backgroundColor: "#8a2592",
+                        }
+                    }}
                     onClick={guardarCliente}
                 >
                     Guardar Cliente

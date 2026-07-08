@@ -18,7 +18,7 @@ export const Footer = () => {
             sx={{
                 mt: 3,
                 py: 2,
-                backgroundColor: "grey.100",
+                backgroundColor: "#eecae9e8",
                 borderTop: "1px solid",
                 borderColor: "divider",
             }}
@@ -152,7 +152,7 @@ export const Footer = () => {
                         fontWeight="medium"
                         color="text.secondary"
                     >
-                        Trabajo Final Integrador • Programación Visual
+                        <strong>Trabajo Final Integrador • Programación Visual</strong>
                     </Typography>
                 </Box>
             </Container>

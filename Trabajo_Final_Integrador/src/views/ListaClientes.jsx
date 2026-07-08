@@ -58,7 +58,11 @@ export const ListaClientes = () => {
                     size="large"
                     component={Link}
                     to="/clientes/nuevo"
-                    sx={{minWidth: 250}}
+                    sx={{minWidth: 250, backgroundColor: "#8a2592", 
+                        "&:hover": {
+                            backgroundColor: "#8a2592",
+                        }
+                    }}
                 >
                     Alta de Cliente
                 </Button>

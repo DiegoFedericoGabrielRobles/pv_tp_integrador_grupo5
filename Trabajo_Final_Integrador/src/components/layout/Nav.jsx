@@ -47,8 +47,13 @@ export const Nav = ({children}) => {
         { text: "Clientes", icon: <PeopleIcon />, path: "/clientes" },
         { text: "Alta Cliente", icon: <PeopleIcon/>, path: "/clientes/nuevo" },
     ];
+    const esLogin = location.pathname === "/login";
+    const bgImage = esLogin ? "none" : `url(${new URL('../../assets/b40c8e0a-4c74-4860-8c15-b46d0a544f25-clean1.png', import.meta.url)})`;
+
+
     return(
-        <Box sx={{ display: "flex" }}>
+        <Box sx={{ display: "flex", position: "relative", minHeight: "100vh"}}>
+            <Box sx={{position: "fixed", top:0, left:0, right:0, bottom:0, backgroundImage: bgImage, backgroundSize: "cover", backgroundPosition: "center", backgroundRepeat: "no-repeat", zIndex: -1}} />
             <AppBar position="fixed" open={open}>
                 <Toolbar>
                     <IconButton
@@ -100,6 +105,7 @@ export const Nav = ({children}) => {
                                             {
                                             minWidth: 0,
                                             justifyContent: "center",
+                                            color:"white"
                                             },
                                             open ? { mr: 3 } : { mr: "auto" },
                                         ]}
@@ -132,6 +138,7 @@ export const Nav = ({children}) => {
                                             {
                                                 minWidth: 0,
                                                 justifyContent: "center",
+                                                color:"white"
                                             },
                                             open ? { mr: 3 } : { mr: "auto" },
                                         ]}
@@ -146,7 +153,8 @@ export const Nav = ({children}) => {
                         </ListItem>
                     </List>
                 </Drawer>
-                <Box component="main" sx={{ flexGrow: 1, p: 3, marginTop: "64px", display: "flex", flexDirection: "column", minHeight: "100vh",}}>
+                <Box component="main" sx={{ flexGrow: 1, p: 3, marginTop: "64px", display: "flex", flexDirection: "column", minHeight: "100vh", position: "relative", zIndex: 1, overflow: "auto",
+                }}>
                     <Box sx={{ flexGrow: 1 }}>
                         {children}
                     </Box>

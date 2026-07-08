@@ -41,7 +41,6 @@ if (loading) {
     const topCiudades = Object.entries(ciudades).sort((a,b)=>b[1]-a[1]).slice(0,5);
 
     return (
-        <>
             <Container maxWidth="lg">
                 <Box sx={{ mt: 5 }}>
                     <Typography variant="h4" gutterBottom sx={{ fontWeight: "bold", color: "primary.main"}}>
@@ -49,19 +48,19 @@ if (loading) {
                     </Typography>
 
                     <Box sx={{ mb: 4 }}>
-                        <Typography variant="h6" gutterBottom sx={{fontWeight: "bold"}}>
+                        <Typography variant="h6" gutterBottom sx={{fontWeight: "bold" ,color: "#616060", fontWeight: "medium"}}>
                             Vision General
                         </Typography>
-                        <Typography variant="body1" color="textSecondary">
+                        <Typography variant="body1" sx={{color: "#616060", fontWeight: "medium"}}>
                             Panel de control de Clientes en tiempo real. Aqui podrás visualizar metricas generales,
                             como gestion de usuarios y supervisión de la informacion de la Base de Datos.
                         </Typography>
                     </Box>
 
-                    <Card sx={{ mb: 3, bgcolor: "primary.light", color:"white"}}>
+                    <Card sx={{ mb: 3, backgroundColor:"#0e427df6"}}>
                         <CardContent>
                             <Typography variant="h5">
-                                Adminostrador:{admin?.nombre || "No Identificado"}
+                                Administrador:{admin?.nombre || "No Identificado"}
                             </Typography>
                             <Typography variant="body2">
                                 Sector: {admin?.sector || "No Identificado"}
@@ -72,7 +71,7 @@ if (loading) {
                     <Grid container spacing={3}>
 
                         <Grid item xs={12} md={4}>
-                            <Card>
+                            <Card sx={{backgroundColor:"#eecae9e8"}}>
                                 <CardContent>
                                     <Typography variant="h6" color="textSecondary">
                                         Total de Clientes
@@ -83,7 +82,7 @@ if (loading) {
                         </Grid>
 
                         <Grid item xs={12} md={8}>
-                            <Card>
+                            <Card sx={{backgroundColor:"#eecae9e8"}}>
                                 <CardContent>
                                     <Typography variant="h6" color="textSecondary" gutterBottom> Top 5 Ciudades con mas clientes </Typography>
                                     {topCiudades.length > 0 ? (
@@ -104,6 +103,6 @@ if (loading) {
                     </Grid>
                 </Box>
             </Container>
-        </>
+        
     );
 };
