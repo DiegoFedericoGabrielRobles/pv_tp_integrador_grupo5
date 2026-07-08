@@ -36,7 +36,7 @@ export const FormularioAltaCliente= () =>{
 
         try {
             const datos = await crearCliente(nuevoCliente);
-            setMensajeExito("Cliente Creado Correctamente. ID asignado: ${datos.id}");
+            setMensajeExito(`Cliente Creado Correctamente. ID asignado: ${datos.id}`);
             setNombre("");
             setApellido("");
             setEmail("");
@@ -50,20 +50,20 @@ export const FormularioAltaCliente= () =>{
     };
 
     return (
-        <card sx={{maxWidth: 800, margin: "20px auto", padding: 3}}>
+        <Card sx={{ maxWidth: 600, margin: "20px auto", padding: 2, backgroundColor:"#eecae9e8" }}>
             <CardContent>
-                <Typography variant="H4" gutterBottom sx={{ fontWeight: "bold", color:"primary.main", textAlign:"center", mb: 3}}>
+                <Typography variant="h4" gutterBottom sx={{ fontWeight: "bold", color: "#8a2592", textAlign:"center", mb: 3}}>
                     Alta de Cliente
                 </Typography>
 
                 {mensajeExito && (
-                    <Alert severity="seccess" sx={{mb: 2}}>
+                    <Alert severity="success" sx={{mt: 2}}>
                         {mensajeExito}
                     </Alert>
                 )}
-                <Box component="form" sx={{ mt: 2}}>
+                <Box component="form" sx={{ mt: 2}}> 
                     <Grid container spacing={2}>
-                        <Grid item xs={12} sm={6}>
+                        <Grid size={{ xs: 12, sm: 6 }}>
                             <TextField
                                 fullWidth
                                 label="Nombre"
@@ -73,7 +73,7 @@ export const FormularioAltaCliente= () =>{
                                 required
                             />
                         </Grid>
-                        <Grid item xs={12} sm={6}>
+                        <Grid size={{ xs: 12, sm: 6 }}>
                             <TextField
                                 fullWidth
                                 label="Apellido"
@@ -83,7 +83,7 @@ export const FormularioAltaCliente= () =>{
                                 required
                             />
                         </Grid>
-                        <Grid item xs={12} sm={6}>
+                        <Grid size={{ xs: 12, sm: 6 }}>
                             <TextField
                                 fullWidth
                                 label="Email"
@@ -93,7 +93,7 @@ export const FormularioAltaCliente= () =>{
                                 required
                             />
                         </Grid>
-                        <Grid item xs={12} sm={6}>
+                        <Grid size={{ xs: 12, sm: 6 }}>
                             <TextField
                                 fullWidth
                                 label="Telefono"
@@ -103,7 +103,7 @@ export const FormularioAltaCliente= () =>{
                                 required
                             />
                         </Grid>
-                        <Grid item xs={12} sm={6}>
+                        <Grid size={{ xs: 12, sm: 6 }}>
                             <TextField
                                 fullWidth
                                 label="Ciudad"
@@ -113,7 +113,7 @@ export const FormularioAltaCliente= () =>{
                                 required
                             />
                         </Grid>
-                        <Grid item xs={12} sm={6}>
+                        <Grid size={{ xs: 12, sm: 6 }}>
                             <TextField
                                 fullWidth
                                 label="Username"
@@ -123,10 +123,11 @@ export const FormularioAltaCliente= () =>{
                                 required
                             />
                         </Grid>
-                        <Grid item xs={12} sm={6}>
+                        <Grid size={{ xs: 12, sm: 6 }}>
                             <TextField
                                 fullWidth
                                 label="Password"
+                                type="password"
                                 margin="normal"
                                 value={password}
                                 onChange={(e) => setPasword(e.target.value)}
@@ -135,26 +136,26 @@ export const FormularioAltaCliente= () =>{
                         </Grid>
                     </Grid>
 
-                    <Box sx={{ mt:3, display: "flex", justifyContent: "center", gap: 2}}>
+                    <Box sx={{ mt: 4, display: "flex", justifyContent: "center", gap: 2}}>
                         <Button 
-                        variant="contained"
-                        size="large"
-                        onClick={guardarCliente}
-                        sx={{ minWidth: 200}}
+                            variant="contained"
+                            fullWidth
+                            sx={{ mt: 2, backgroundColor:"#8a2592","&:hover": {backgroundColor: "#8a2592",}}}
+                            onClick={guardarCliente}
                         >
                             Guardar
                         </Button>
                         <Button 
-                        variant="contained"
-                        size="large"
-                        onClick={() => navigate("/clientes")}
-                        sx={{ minWidth: 200}}
+                            variant="contained"
+                            fullWidth
+                            sx={{ mt: 2, backgroundColor:"#8a2592","&:hover": {backgroundColor: "#8a2592",}}}
+                            onClick={() => navigate("/clientes")}
                         >
                             Cancelar
                         </Button>
                     </Box>
                 </Box>
             </CardContent>
-        </card>
+        </Card>
     );
 };

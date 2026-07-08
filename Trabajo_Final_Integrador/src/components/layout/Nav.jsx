@@ -20,6 +20,7 @@ import DashboardIcon from '@mui/icons-material/Dashboard';
 import PeopleIcon from '@mui/icons-material/People';
 import LogoutIcon from '@mui/icons-material/Logout';
 import Divider from '@mui/material/Divider';
+import PersonAddIcon from "@mui/icons-material/PersonAdd";
 
 import { Footer } from "./Footer";
 import { AppBar, Drawer, DrawerHeader } from "../../styles/nav_style"; 
@@ -45,7 +46,7 @@ export const Nav = ({children}) => {
     const menuItems = [
         { text: "Panel", icon: <DashboardIcon />, path: "/" },
         { text: "Clientes", icon: <PeopleIcon />, path: "/clientes" },
-        { text: "Alta Cliente", icon: <PeopleIcon/>, path: "/clientes/nuevo" },
+        { text: "Alta Cliente", icon: <PersonAddIcon/>, path: "/clientes/nuevo" },
     ];
     const esLogin = location.pathname === "/login";
     const bgImage = esLogin ? "none" : `url(${new URL('../../assets/b40c8e0a-4c74-4860-8c15-b46d0a544f25-clean1.png', import.meta.url)})`;

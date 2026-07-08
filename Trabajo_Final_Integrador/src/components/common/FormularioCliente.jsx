@@ -56,7 +56,6 @@ export const FormularioCliente = () => {
     return (
         <Card sx={{ maxWidth: 600, margin: "20px auto", padding: 2, backgroundColor:"#eecae9e8" }}>
             <CardContent>
-                <Typography variant="h6" gutterBottom> Alta de Cliente </Typography>
 
                 <TextField
                     fullWidth

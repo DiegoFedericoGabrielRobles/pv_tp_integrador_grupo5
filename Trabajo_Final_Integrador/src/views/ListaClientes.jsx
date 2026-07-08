@@ -3,17 +3,12 @@ import { obtenerClientes } from "../services/clienteService";
 import { Link } from "react-router-dom";
 
 import { BuscadorClientes } from "../components/common/BuscadorClientes";
-import { FormularioCliente } from "../components/common/FormularioCliente";
+import { CardsClientes } from "../components/common/CardsClientes";
 
 import CircularProgress from "@mui/material/CircularProgress";
 import Alert from "@mui/material/Alert";
-import { CardsClientes } from "../components/common/CardsClientes";
 import Button from "@mui/material/Button";
 import Box from "@mui/material/Box"
-
-
-
-
 
 export const ListaClientes = () => {
     const [clientes, setClientes] = useState([]);
@@ -52,24 +47,7 @@ export const ListaClientes = () => {
 
     return (
         <>
-            <Box sx={{mb:3, textAlign:"center"}}>
-                <Button
-                    variant="contained"
-                    size="large"
-                    component={Link}
-                    to="/clientes/nuevo"
-                    sx={{minWidth: 250, backgroundColor: "#8a2592", 
-                        "&:hover": {
-                            backgroundColor: "#8a2592",
-                        }
-                    }}
-                >
-                    Alta de Cliente
-                </Button>
-            </Box>
             <BuscadorClientes apellidoBusqueda={apellidoBusqueda} setApellidoBusqueda={setApellidoBusqueda} ciudadBusqueda={ciudadBusqueda} setCiudadBusqueda={setCiudadBusqueda} />
-            
-             <FormularioCliente />
 
             <CardsClientes clientes={clientesFiltrados}/> 
         </>

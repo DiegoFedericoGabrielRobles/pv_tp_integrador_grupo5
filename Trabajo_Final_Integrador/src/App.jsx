@@ -19,7 +19,7 @@ function App() {
         <Route path="/" element={admin ? <Dashboard /> : <Navigate to="/login" />} />
         <Route path="/login" element={<Login/>} />
         <Route path="/clientes" element={admin ? <ListaClientes /> : <Navigate to="/login" />} />
-        <Route path="/clientes/alta" element={admin ? <AltaCliente /> : <Navigate to="/login" />} />
+        <Route path="/clientes/nuevo" element={admin ? <AltaCliente /> : <Navigate to="/login" />} />
         <Route path="/clientes/:id" element={admin ? <DetalleCliente /> : <Navigate to="/login" />} />
       </Routes>
     </Nav>
