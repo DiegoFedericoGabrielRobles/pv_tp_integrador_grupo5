@@ -6,6 +6,7 @@ import { Login } from "./views/Login";
 import { Dashboard } from "./views/Dashboard";
 import { ListaClientes } from "./views/ListaClientes";
 import { DetalleCliente } from "./views/DetalleCliente";
+import { AltaCliente } from "./views/AltaCliente";
 
 import { Nav } from "./components/layout/Nav";
 
@@ -18,6 +19,7 @@ function App() {
         <Route path="/" element={admin ? <Dashboard /> : <Navigate to="/login" />} />
         <Route path="/login" element={<Login/>} />
         <Route path="/clientes" element={admin ? <ListaClientes /> : <Navigate to="/login" />} />
+        <Route path="/clientes/alta" element={admin ? <AltaCliente /> : <Navigate to="/login" />} />
         <Route path="/clientes/:id" element={admin ? <DetalleCliente /> : <Navigate to="/login" />} />
       </Routes>
     </Nav>

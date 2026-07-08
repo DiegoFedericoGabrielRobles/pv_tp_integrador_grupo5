@@ -78,7 +78,7 @@ export const DetalleCliente = () => {
     const { street, number, city, zipcode } = address;
 
     return (
-        <Card sx={{ maxWidth: 600, margin: "20px auto", padding: 2 }}>
+        <Card sx={{ maxWidth: 600, margin: "20px auto", padding: 2, backgroundColor: "#eecae9e8" }}>
             <CardContent>
                 <Typography variant="h5" gutterBottom sx={{ fontWeight: "bold" }}>
                     Ficha Profunda del Cliente #{id}
