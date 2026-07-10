@@ -20,7 +20,25 @@ export const obtenerClienteId = async (id) => {
     return await respuesta.json();
 };
 
+export const obtenerCiudades = async () => {
+    const clientes = await obtenerClientes();
+
+    const ciudades = [...new Set(clientes.map(cliente => cliente.address.city))];
+
+    return ciudades.sort();
+    };
+
 export const crearCliente = async (nuevoCliente) => {
+    console.log("===SIMULACION ALTA CLIENTE===");
+    console.log("Datos del nuevo cliente:",nuevoCliente);
+    console.log("===========================");
+
+    const idSimulado = Math.floor(Math.random()*1000)+1;
+
+    return{
+        id: idSimulado, ...nuevoCliente
+    };
+
     const respuesta = await fetch(URL, {
         method: "POST",
         headers: {
@@ -36,6 +54,12 @@ export const crearCliente = async (nuevoCliente) => {
 };
 
 export const eliminarCliente = async (id) => {
+    console.log("=== SIMULACION ELIMINAR CLIENTE ===");
+    console.log("ID del cliente a eliminar:",id);
+    console.log("==================================");
+
+    return{message: "Cliente Eliminado (Simulado)"};
+
     const respuesta = await fetch(`${URL}/${id}`, {
         method: "DELETE"
     });

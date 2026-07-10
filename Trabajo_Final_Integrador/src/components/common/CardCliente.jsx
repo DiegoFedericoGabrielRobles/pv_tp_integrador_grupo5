@@ -1,8 +1,14 @@
 import { Link } from "react-router-dom";
 import { Card, CardContent, CardActions, Typography, Grid, IconButton, Tooltip } from "@mui/material";
 import VisibilityIcon from '@mui/icons-material/Visibility';
+import DeleteIcon from '@mui/icons-material/Delete';
 
 export const CardCliente = ({ cliente}) => {
+    const handleEliminar=() =>{
+        if (window.confirm("¿Estas seguro de eliminar al cliente ${cliente.name.firstname} ${cliente.name.lastname}?")) {
+            onEliminar(cliente.id);
+        }
+    };
     return (
         <Grid item xs={12} sm={6} md={4}>
             <Card sx={{height:"100%", display:"flex", flexDirection:"column", backgroundColor:"#eecae9e8"}}> 

@@ -29,6 +29,17 @@ export const ListaClientes = () => {
             }
     };
 
+    const handleEliminarCliente= async (id)=>{
+        try{
+            await eliminarCliente(id);
+            cargarClientes();
+            alert("Cliente eliminado correctamente (Simulado).");
+        } catch (error){
+            console.error("Error al eliminar cliente:",error);
+            alert("Error al eliminar el cliente.");
+        }
+    };
+
     useEffect(() => {
         cargarClientes();
     }, []);

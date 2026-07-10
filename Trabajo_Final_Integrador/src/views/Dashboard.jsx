@@ -48,10 +48,10 @@ if (loading) {
                     </Typography>
 
                     <Box sx={{ mb: 4 }}>
-                        <Typography variant="h6" gutterBottom sx={{fontWeight: "bold" ,color: "#616060", fontWeight: "medium"}}>
+                        <Typography variant="h4" gutterBottom sx={{fontWeight: "bold" ,color: "#939090", fontWeight: "medium"}}>
                             Vision General
                         </Typography>
-                        <Typography variant="body1" sx={{color: "#616060", fontWeight: "medium"}}>
+                        <Typography variant="h6" sx={{color: "#939090", fontWeight: "medium"}}>
                             Panel de control de Clientes en tiempo real. Aqui podrás visualizar metricas generales,
                             como gestion de usuarios y supervisión de la informacion de la Base de Datos.
                         </Typography>
